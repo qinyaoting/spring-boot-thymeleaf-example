@@ -16,8 +16,14 @@
 	<description>Spring Boot Thymeleaf example - CRUD with Bootstrap</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<start-class>com.bezkoder.spring.thymeleaf.SpringBootThymeleafExampleApplication</start-class>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -39,11 +45,6 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>bootstrap</artifactId>
-			<version>4.6.2</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.webjars</groupId>
@@ -55,16 +56,39 @@
 			<groupId>org.webjars</groupId>
 			<artifactId>webjars-locator-core</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>4.3.1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<scope>annotationProcessor</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>annotationProcessor</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fazecast</groupId>
+			<artifactId>jSerialComm</artifactId>
+			<version>2.10.4</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/jSerialComm-2.10.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.google.firebase</groupId>
+			<artifactId>firebase-crashlytics-buildtools</artifactId>
+			<version>3.0.2</version>
+			<scope>system</scope>
+			<systemPath>${pom.basedir}/lib/firebase-crashlytics-buildtools-3.0.2.jar</systemPath>
 		</dependency>
 	</dependencies>
 
@@ -73,6 +97,26 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<includeSystemScope>true</includeSystemScope>
+					<mainClass>com.bezkoder.spring.thymeleaf.SpringBootThymeleafExampleApplication</mainClass>
+					<layout>JAR</layout>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>9</source>
+					<target>9</target>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
