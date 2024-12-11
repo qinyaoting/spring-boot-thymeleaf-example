@@ -89,7 +89,7 @@ public class TutorialController {
       byte[] by6 = BaseEncoding.base16().decode(cmd);
       SerialPortManager.sendToPort(serialPort, by6);
       System.out.println("---" + System.currentTimeMillis());
-      Thread.sleep(4000);
+      Thread.sleep(3000);
     } catch (Exception e) {
       redirectAttributes.addAttribute("message", e.getMessage());
     } finally {
@@ -107,7 +107,7 @@ public class TutorialController {
       Tutorial tutorial = tutorialRepository.findById(id).get();
 
       model.addAttribute("tutorial", tutorial);
-      model.addAttribute("pageTitle", "Edit Tutorial (ID: " + id + ")");
+      model.addAttribute("pageTitle", "Edit (ID: " + id + ")");
 
       return "tutorial_form";
     } catch (Exception e) {

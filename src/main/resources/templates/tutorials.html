@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
   <title>SPT Led Tool</title>
 
-  <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}" />
-  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/jquery/css/style.css}" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </head>
@@ -28,8 +28,8 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-
-    <div class="my-3">
+    <!--
+    <div class="my-3" >
       <form th:action="@{/tutorials}">
         <div class="row d-flex">
           <div class="col-md-6 mt-2">
@@ -45,7 +45,7 @@
           </div>
         </div>
       </form>
-    </div>
+    </div> -->
 
     <div th:if="${tutorials.size() > 0}">
       <table class="table table-hover table-responsive-xl">
@@ -54,7 +54,7 @@
             <th scope="col">Id</th>
             <th scope="col">Led Text</th>
             <th scope="col">Display style</th>
-            <th scope="col">SerialCom Num</th>
+            <th scope="col">SerialCom</th>
             <!--
             <th scope="col">Published</th> ..-->
             <th scope="col">Actions</th>
